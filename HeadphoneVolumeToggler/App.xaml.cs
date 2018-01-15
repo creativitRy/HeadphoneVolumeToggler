@@ -18,8 +18,8 @@ namespace HeadphoneVolumeToggler
 	/// </summary>
 	sealed partial class App : Application
 	{
-		public double UnpluggedVolume { get; set; }
-		public double PluggedVolume { get; set; }
+		public int UnpluggedVolume { get; set; }
+		public int PluggedVolume { get; set; }
 
 		/// <summary>
 		/// Initializes the singleton application object.  This is the first line of authored code
@@ -186,19 +186,19 @@ namespace HeadphoneVolumeToggler
 					var text = texts[1].Text;
 					if (text.Contains("unplugged"))
 					{
-						SwitchVolume(false);
+						await SwitchVolume(false);
 					}
 					else if (text.Contains("plugged"))
 					{
-						SwitchVolume(true);
+						await SwitchVolume(true);
 					}
 				}
 			}
 		}
 
-		public void SwitchVolume(bool plugged)
+		public async Task SwitchVolume(bool plugged)
 		{
-			ElementSoundPlayer.Volume = plugged ? PluggedVolume : UnpluggedVolume;
+			await new AhkFileManager(plugged ? PluggedVolume : UnpluggedVolume).Run();
 		}
 
 		/// <summary>

@@ -29,14 +29,14 @@ namespace HeadphoneVolumeToggler
 			RangeBaseValueChangedEventArgs e)
 		{
 			var application = (App) Application.Current;
-			application.UnpluggedVolume = e.NewValue / 100.0;
+			application.UnpluggedVolume = (int) e.NewValue;
 		}
 
 		private void slPlugged_ValueChanged(object sender,
 			RangeBaseValueChangedEventArgs e)
 		{
 			var application = (App) Application.Current;
-			application.PluggedVolume = e.NewValue / 100.0;
+			application.PluggedVolume = (int) e.NewValue;
 		}
 	}
 }

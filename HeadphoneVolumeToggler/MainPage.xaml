@@ -12,7 +12,7 @@
             <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
                 <TextBlock TextWrapping="Wrap" Text="Unplugged" VerticalAlignment="Center" />
                 <Slider Maximum="100" TickPlacement="BottomRight" TickFrequency="10" Name="slUnplugged"
-                        ValueChanged="slUnplugged_ValueChanged" Width="150" Value="10" Margin="25,0" />
+                        ValueChanged="slUnplugged_ValueChanged" Width="150" Value="0" Margin="25,0" />
                 <TextBox Text="{Binding ElementName=slUnplugged, Path=Value, UpdateSourceTrigger=PropertyChanged}"
                          TextAlignment="Right" Width="40" VerticalAlignment="Center" />
             </StackPanel>
